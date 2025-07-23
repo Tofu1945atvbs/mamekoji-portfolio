@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豆麹のアトリエ - イラストレーター・デザイナー</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #faf9f7;
+            --secondary-bg: #f5f3f0;
+            --card-bg: #ffffff;
+            --text-primary: #2c2c2c;
+            --text-secondary: #5a5a5a;
+            --accent: #4c52bb;
+            --accent-hover: #5a60d4;
+            --red-accent: #ebd500;
+            --navy: #262e38;
+            --border: #e8e5e0;
+            --shadow: rgba(76, 82, 187, 0.1);
+            --gold-gradient: linear-gradient(135deg, #4c52bb 0%, #5a60d4 100%);
+        }
+        }
+
+        body {
+	font-family: "しねきゃぷしょん", Terminal
+	line-height: 1.7;
+	color: var(--text-primary);
+	background: var(--primary-bg);
+	overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Traditional Japanese patterns */
+        .wave-pattern {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0 10 Q 25 0 50 10 T 100 10 V 20 H 0 Z" fill="%23b8860b" fill-opacity="0.05"/></svg>');
+            background-repeat: repeat-x;
+            background-size: 100px 20px;
+        }
+
+        .seigaiha-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><g fill="none" stroke="%23b8860b" stroke-width="0.5" stroke-opacity="0.1"><circle cx="15" cy="30" r="14"/><circle cx="45" cy="30" r="14"/><circle cx="30" cy="0" r="14"/><circle cx="30" cy="60" r="14"/></g></svg>');
+            opacity: 0.3;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(250, 249, 247, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--border);
+            box-shadow: 0 2px 20px rgba(184, 134, 11, 0.1);
+        }
+
+        header.scrolled {
+            background: rgba(250, 249, 247, 0.98);
+            border-bottom-color: var(--accent);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-family: 'Shippori Mincho', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '◆';
+            margin-left: 0.5rem;
+            color: var(--red-accent);
+            font-size: 0.8em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-family: 'Shippori Mincho', serif;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gold-gradient);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23b8860b;stop-opacity:0.08"/><stop offset="100%" style="stop-color:%23b8860b;stop-opacity:0"/></radialGradient></defs><circle cx="100" cy="100" r="80" fill="url(%23grad1)"/><circle cx="300" cy="200" r="60" fill="url(%23grad1)"/><circle cx="200" cy="320" r="70" fill="url(%23grad1)"/></svg>');
+            opacity: 0.4;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40"><path d="M0 20 Q 50 10 100 20 T 200 20 V 40 H 0 Z" fill="%23b8860b" fill-opacity="0.1"/></svg>');
+            background-repeat: repeat-x;
+            background-size: 200px 40px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero h1 {
+	font-family: "しねきゃぷしょん";
+	font-size: 4.5rem;
+	font-weight: 800;
+	margin-bottom: 1.5rem;
+	background: var(--gold-gradient);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	letter-spacing: 0.1em;
+	text-shadow: 0 4px 8px rgba(184, 134, 11, 0.2);
+	position: relative;
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 100%;
+            height: 3px;
+            background: var(--red-accent);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .hero p {
+            font-family: 'Shippori Mincho', serif;
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 0.08em;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold-gradient);
+            color: var(--primary-bg);
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-family: 'Shippori Mincho', serif;
+            letter-spacing: 0.1em;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(184, 134, 11, 0.3);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(184, 134, 11, 0.4);
+            border-color: var(--accent);
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 0;
+            background: var(--secondary-bg);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40"><path d="M0 0 Q 50 10 100 0 T 200 0 V 40 H 0 Z" fill="%23faf9f7"/></svg>');
+            background-repeat: repeat-x;
+            background-size: 200px 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Shippori Mincho', serif;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '◆ ◇ ◆';
+            position: absolute;
+            top: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent);
+            font-size: 1rem;
+            letter-spacing: 0.5em;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--text-secondary);
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .about-text p {
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent);
+            position: relative;
+        }
+
+        .about-text p::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--red-accent);
+            border-radius: 50%;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-bg);
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Shippori Mincho', serif;
+            margin: 0 auto;
+            box-shadow: 
+                0 0 0 8px var(--primary-bg),
+                0 0 0 16px var(--accent),
+                0 25px 50px rgba(184, 134, 11, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-conic-gradient(
+                from 0deg at 50% 50%,
+                transparent 0deg,
+                rgba(255, 255, 255, 0.1) 45deg,
+                transparent 90deg
+            );
+            animation: rotate 20s linear infinite;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 
+                0 0 0 8px var(--primary-bg),
+                0 0 0 16px var(--red-accent),
+                0 30px 60px rgba(220, 20, 60, 0.3);
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+		
+		        /* Vtuber Section */
+        .vtuber {
+            padding: 8rem 0;
+            background: var(--secondary-bg);
+            position: relative;
+        }
+
+        .vtuber::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40"><path d="M0 0 Q 50 10 100 0 T 200 0 V 40 H 0 Z" fill="%23faf9f7"/></svg>');
+            background-repeat: repeat-x;
+            background-size: 200px 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Shippori Mincho', serif;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '◆ ◇ ◆';
+            position: absolute;
+            top: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent);
+            font-size: 1rem;
+            letter-spacing: 0.5em;
+        }
+
+        .vtuber-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .vtuber-text {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--text-secondary);
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .vtuber-text p {
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent);
+            position: relative;
+        }
+
+        .vtuber-text p::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--red-accent);
+            border-radius: 50%;
+        }
+
+        .vtuber-image {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-bg);
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Shippori Mincho', serif;
+            margin: 0 auto;
+            box-shadow: 
+                0 0 0 8px var(--primary-bg),
+                0 0 0 16px var(--accent),
+                0 25px 50px rgba(184, 134, 11, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-conic-gradient(
+                from 0deg at 50% 50%,
+                transparent 0deg,
+                rgba(255, 255, 255, 0.1) 45deg,
+                transparent 90deg
+            );
+            animation: rotate 20s linear infinite;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 
+                0 0 0 8px var(--primary-bg),
+                0 0 0 16px var(--red-accent),
+                0 30px 60px rgba(220, 20, 60, 0.3);
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 8rem 0;
+            background: var(--primary-bg);
+            position: relative;
+        }
+
+        .portfolio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40"><path d="M0 0 Q 50 10 100 0 T 200 0 V 40 H 0 Z" fill="%23f5f3f0"/></svg>');
+            background-repeat: repeat-x;
+            background-size: 200px 40px;
+        }
+
+     .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .portfolio-item {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid var(--border);
+            transition: all 0.4s ease;
+            position: relative;
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gold-gradient);
+            border-radius: 15px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover::before {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(184, 134, 11, 0.2);
+        }
+
+        .portfolio-image {
+            height: 220px;
+            background: var(--gold-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-bg);
+            font-size: 1.3rem;
+            font-weight: 600;
+            font-family: 'Shippori Mincho', serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image::before {
+            left: 100%;
+        }
+
+        .portfolio-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0 0 Q 25 10 50 0 T 100 0 V 20 H 0 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-repeat: repeat-x;
+            background-size: 100px 20px;
+        }
+
+        .portfolio-content {
+            padding: 2.5rem;
+        }
+
+        .portfolio-content h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-family: 'Shippori Mincho', serif;
+            letter-spacing: 0.05em;
+        }
+
+        .portfolio-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tag {
+            background: var(--secondary-bg);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .tag:hover {
+            background: var(--gold-gradient);
+            color: var(--primary-bg);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Links Section */
+        .links {
+            padding: 8rem 0;
+            background: var(--secondary-bg);
+            position: relative;
+        }
+
+        .links::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40"><path d="M0 0 Q 50 10 100 0 T 200 0 V 40 H 0 Z" fill="%23faf9f7"/></svg>');
+            background-repeat: repeat-x;
+            background-size: 200px 40px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .link-item {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid var(--border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gold-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .link-item::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: var(--red-accent);
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.4s ease;
+        }
+
+        .link-item:hover::before {
+            opacity: 0.05;
+        }
+
+        .link-item:hover::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .link-item:hover {
+            transform: translateY(-8px) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(184, 134, 11, 0.2);
+            border-color: var(--accent);
+        }
+
+        .link-item h3 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-family: 'Shippori Mincho', serif;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.05em;
+        }
+
+        .link-item p {
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: var(--gold-gradient);
+            color: var(--primary-bg);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-family: 'Shippori Mincho', serif;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            border: 2px solid transparent;
+        }
+
+        .link-button:hover {
+            transform: scale(1.05);
+            border-color: var(--red-accent);
+            box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--primary-bg);
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40"><path d="M0 0 Q 50 10 100 0 T 200 0 V 40 H 0 Z" fill="%23f5f3f0"/></svg>');
+            background-repeat: repeat-x;
+            background-size: 200px 40px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--primary-bg);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-family: 'Shippori Mincho', serif;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            letter-spacing: 0.05em;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            background: rgba(184, 134, 11, 0.1);
+            transform: translateY(-2px);
+        }
+
+        footer p {
+            font-family: 'Shippori Mincho', serif;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--border);
+            z-index: 1001;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: var(--gold-gradient);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .profile-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+		
+		<!-- この行を削除 -->
+<link href="file:///C|/Users/DC川越メイン/Downloads/豆麴のアトリエ.css" rel="stylesheet" type="text/css">
+		
+    </style>
+    <link href="file:///C|/Users/DC川越メイン/Downloads/豆麴のアトリエ.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">豆麹のアトリエ</a>
+            <ul class="nav-links">
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#about">プロフィール</a></li>
+                <li><a href="#portfolio">作品</a></li>
+                <li><a href="#links">リンク</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>豆麹のアトリエ</h1>
+            <p>一次・二次創作イラストレーション・デザイン</p>
+            <a href="#portfolio" class="cta-button">作品をみる</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">プロフィール</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>趣味でイラストやデザインをしている豆麹と申します。</p>
+                    <p>アミューズメントメディア総合学院 ゲーム・アニメ・3DCG学科卒
+クトゥルフ神話TRPGが大好きで、一次創作や二次創作イラストの制作をしています。</p>
+                    <p>OCイラストや二次創作イラスト、ccfoliaの卓デザイン等で活動しています。</p>
+                </div>
+                <div class="about-image">
+                    <div class="profile-image">
+				    <img src="通常.png" width="400" height="400" alt=""/> </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	    <section id="vtuber" class="vtuber">
+        <div class="container">
+            <h2 class="section-title">仁井冬悟</h2>
+            <div class="vtuber-content">
+                <div class="vtuber-text">
+                    <p>警察官・クトゥルフ神話TRPG6版探索者系Vtuber</p>
+                    <p>警察官でお兄ちゃんなVtuber。面倒見がよく、カッコいい人間が大好きな26歳。</p>
+                    <p>RPGやアクションゲームを好む。</p>
+					<p>配信は隔週水・金曜日の20:00から。</p>
+					<p>配信ハッシュタグ：#ニトストリーム</p>
+                </div>
+                <div class="vtuber-image">
+                    <div class="profile-image">
+                    <img src="冬悟バストアップ.png" width="370" height="370" alt=""/> </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">作品集</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" onclick="window.open('https://ayukaooe2001job.wixsite.com/my-site/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E4%BD%9C%E5%93%81-%E4%BA%8C%E6%AC%A1%E5%89%B5%E4%BD%9C', '_blank', 'noopener,noreferrer')" style="cursor: pointer;">
+                    <div class="portfolio-image">二次創作イラスト</div>
+                    <div class="portfolio-content">
+                        <h3>二次創作イラスト</h3>
+                        <p>他作品・キャラクターの二次創作イラストです</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">イラスト</span>
+                            <span class="tag">一枚絵</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" onclick="window.open('https://ayukaooe2001job.wixsite.com/my-site/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E4%BD%9C%E5%93%81-%E4%B8%80%E6%AC%A1%E5%89%B5%E4%BD%9C', '_blank', 'noopener,noreferrer')" style="cursor: pointer;">
+                    <div class="portfolio-image">一次創作イラスト</div>
+                    <div class="portfolio-content">
+                        <h3>一次創作イラスト</h3>
+                        <p>創作キャラクターの一枚絵です</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">イラスト</span>
+                            <span class="tag">一枚絵</span>
+                            <span class="tag">OC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" onclick="window.open('https://ayukaooe2001job.wixsite.com/my-site/coc%E6%8E%A2%E7%B4%A2%E8%80%85%E4%B8%80%E8%A6%A7', '_blank', 'noopener,noreferrer')" style="cursor: pointer;">
+                    <div class="portfolio-image">TRPG探索者立ち絵</div>
+                    <div class="portfolio-content">
+                        <h3>TRPG探索者立ち絵</h3>
+                        <p>クトゥルフ神話TRPGに登場する探索者イラストです</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">イラスト</span>
+                            <span class="tag">立ち絵</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="links" class="links">
+        <div class="container">
+            <h2 class="section-title">リンク</h2>
+            <div class="links-grid">
+                <div class="link-item">
+                    <h3>Pixiv</h3>
+                    <p>主に一枚絵の投稿をしています</p>
+					<button class="link-button" onclick="window.open('https://www.pixiv.net/users/24319989','_blank','noopener')">作品を見る</button>
+
+                </div>
+                <div class="link-item">
+                    <h3>X(Twitter)</h3>
+                    <p>卓報告やOCキャラの投稿をしています</p>
+                    <a
+  href="https://x.com/TofuATNR_TRPG"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="link-button"
+>
+  サイトを開く
+</a>
+
+                </div>
+                <div class="link-item">
+                    <h3>Youtube</h3>
+                    <p>不定期で作業配信などを行っております</p>
+                    <button class="link-button" onclick="window.open('https://www.youtube.com/@tofu_gnsn','_blank','noopener')">配信を見る</button>
+                </div>
+                <div class="link-item">
+                    <h3>Vtuber</h3>
+                    <p>仁井冬悟の活動はこちらから</p>
+                                        <a
+  href="https://www.youtube.com/@%E4%BB%81%E4%BA%95%E5%86%AC%E6%82%9F"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="link-button"
+>
+  配信を見る
+</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                   <a
+      href="https://www.pixiv.net/users/24319989"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Pixiv
+    </a>
+                <a
+      href="https://x.com/TofuATNR_TRPG"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      X(Twitter)
+    </a>
+                <a
+      href="https://www.youtube.com/@tofu_gnsn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Youtube
+    </a>
+                <a
+      href="https://www.youtube.com/@%E4%BB%81%E4%BA%95%E5%86%AC%E6%82%9F"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Vtuber
+    </a>
+            </div>
+            <p>&copy; 2025 豆麹のアトリエ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // スクロール進捗バー & ヘッダー効果
+        window.addEventListener('scroll', function() {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const header = document.querySelector('header');
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            
+            // スクロール進捗バー
+            scrollProgress.style.width = scrollPercent + '%';
+            
+            // ヘッダー背景の変更
+            if (scrollTop > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 作品項目のアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.portfolio-item, .link-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // パララックス効果（軽減）
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.2}px)`;
+            }
+        });
+
+        // 和風パーティクル効果（桜の花びらのような効果）
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: fixed;
+                width: 8px;
+                height: 8px;
+                background: linear-gradient(45deg, #b8860b, #cd853f);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 1000;
+                opacity: 0.6;
+                top: -10px;
+                left: ${Math.random() * 100}vw;
+                animation: fall ${3 + Math.random() * 4}s linear forwards;
+            `;
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 7000);
+        }
+
+        // パーティクル用のCSSアニメーションを動的に追加
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(720deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // パーティクルを定期的に生成
+        setInterval(createParticle, 2000);
+    </script>
+</body>
+</html>
