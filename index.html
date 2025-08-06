@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="豆麹のアトリエ - クトゥルフ神話TRPG二次創作イラスト、一次創作イラスト、デザインを制作するイラストレーター">
+<meta property="og:title" content="豆麹のアトリエ">
+<meta property="og:description" content="一次・二次創作イラストレーション・デザイン">
     <title>豆麹のアトリエ - イラストレーター・デザイナー</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700;800&display=swap');
@@ -135,22 +138,24 @@
             padding: 2rem 0;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 400%; /* 4倍の幅で2枚の画像を配置 */
-            height: 100%;
-            background-image: 
-                url('https://i.imgur.com/IaE0HCy.png');
-            background-size: 25% 100%, 25% 100%; /* 各画像を25%の幅に */
-            background-repeat: repeat-x;
-            background-position: 0% center, 25% center; /* 2枚目の画像を25%の位置に配置 */
-            animation: backgroundScrollDual 40s linear infinite; /* 時間を倍に */
-            z-index: 1;
-            opacity: 0.4;
-        }
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%;
+    height: 100%;
+    /* ローカル画像を使用し、フォールバック付き */
+    background-image: 
+        url('baae977a407da547.png'),
+        linear-gradient(135deg, var(--accent) 0%, var(--red-accent) 100%);
+    background-size: 25% 100%, 100% 100%;
+    background-repeat: repeat-x, no-repeat;
+    background-position: 0% center, center center;
+    animation: backgroundScrollDual 40s linear infinite;
+    z-index: 1;
+    opacity: 0.4;
+}
 
         .hero::after {
             content: '';
@@ -195,7 +200,7 @@
             background-size: 50% 100%;
         }
 		
-
+        
         .hero h1 {
             font-family: 'Shippori Mincho', serif;
             font-size: clamp(2.5rem, 8vw, 4.5rem);
@@ -745,7 +750,9 @@
 
     </style>
 </head>
-	
+	<div class="scroll-indicator">
+    <div class="scroll-progress" id="scrollProgress"></div>
+</div>
 <body>
     <header>
         <nav class="container">
@@ -758,6 +765,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">ホーム</a></li>
                 <li><a href="#about">プロフィール</a></li>
+				<li><a href="#vtuber">Vtuber</a></li>
                 <li><a href="#portfolio">作品</a></li>
                 <li><a href="#links">リンク</a></li>
             </ul>
@@ -1088,7 +1096,60 @@ scrollToTopBtn.addEventListener('click', function() {
         behavior: 'smooth'
     });
 });
-		
+		// 画像読み込み確認とフォールバック処理
+function checkBackgroundImage() {
+    const hero = document.querySelector('.hero');
+    const testImage = new Image();
+    
+    // 外部画像の読み込みテスト
+    testImage.onload = function() {
+        console.log('背景画像の読み込み成功');
+        // 画像が読み込まれた場合は何もしない
+    };
+    
+    testImage.onerror = function() {
+        console.log('背景画像の読み込み失敗 - フォールバックを使用');
+        // 画像が読み込まれなかった場合はクラスを追加
+        hero.classList.add('no-image');
+        
+        // より魅力的なグラデーション背景を設定
+        hero.style.setProperty('--fallback-bg', `
+            linear-gradient(135deg, 
+                var(--accent) 0%, 
+                var(--accent-hover) 20%, 
+                var(--red-accent) 40%, 
+                var(--accent-hover) 60%, 
+                var(--accent) 80%,
+                var(--red-accent) 100%
+            )
+        `);
+    };
+    
+    // 使用している画像のURLをテスト
+    testImage.src = 'https://i.imgur.com/IaE0HCy.png';
+}
+
+// ページ読み込み後に実行
+document.addEventListener('DOMContentLoaded', checkBackgroundImage);
+
+// ローカル画像ファイルの確認
+function checkLocalImages() {
+    const imagesToCheck = [
+        '通常.png',
+        '冬悟バストアップ.png'
+		'baae977a407da547.png'
+    ];
+    
+    imagesToCheck.forEach(imagePath => {
+        const img = new Image();
+        img.onload = () => console.log(`${imagePath} 読み込み成功`);
+        img.onerror = () => console.log(`${imagePath} 読み込み失敗`);
+        img.src = imagePath;
+    });
+}
+
+// 画像確認も実行
+document.addEventListener('DOMContentLoaded', checkLocalImages);
     </script>
 </body>
 </html>
