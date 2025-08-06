@@ -140,18 +140,61 @@
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23b8860b;stop-opacity:0.08"/><stop offset="100%" style="stop-color:%23b8860b;stop-opacity:0"/></radialGradient></defs><circle cx="100" cy="100" r="80" fill="url(%23grad1)"/><circle cx="300" cy="200" r="60" fill="url(%23grad1)"/><circle cx="200" cy="320" r="70" fill="url(%23grad1)"/></svg>');
+            width: 400%; /* 4倍の幅で2枚の画像を配置 */
+            height: 100%;
+            background-image: 
+                url('https://i.imgur.com/IaE0HCy.png');
+            background-size: 25% 100%, 25% 100%; /* 各画像を25%の幅に */
+            background-repeat: repeat-x;
+            background-position: 0% center, 25% center; /* 2枚目の画像を25%の位置に配置 */
+            animation: backgroundScrollDual 40s linear infinite; /* 時間を倍に */
+            z-index: 1;
             opacity: 0.4;
         }
 
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.5);
+            z-index: 2;
+        }
+		
+		        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 80%;
+            height: 3px;
+            background: var(--red-accent);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+		
+		
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             animation: fadeInUp 1.2s ease-out;
             padding: 0 1rem;
         }
+		
+		        /* 画像が読み込まれない場合のフォールバック */
+        .hero.no-image::before {
+            background: linear-gradient(90deg, 
+                var(--accent) 0%, 
+                var(--accent-hover) 25%, 
+                var(--red-accent) 50%, 
+                var(--accent-hover) 75%, 
+                var(--accent) 100%
+            );
+            background-size: 50% 100%;
+        }
+		
 
         .hero h1 {
             font-family: 'Shippori Mincho', serif;
@@ -165,18 +208,6 @@
             letter-spacing: 0.1em;
             text-shadow: 0 4px 8px rgba(184, 134, 11, 0.2);
             position: relative;
-        }
-
-        .hero h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            width: 80%;
-            height: 3px;
-            background: var(--red-accent);
-            transform: translateX(-50%);
-            border-radius: 2px;
         }
 
         .hero p {
@@ -675,14 +706,47 @@
                 transform: translateY(0);
             }
         }
+		
+		/* スクロールトップボタンのスタイル */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: var(--gold-gradient);
+    border: none;
+    border-radius: 50%;
+    color: var(--primary-bg);
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(76, 82, 187, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 15px 35px rgba(76, 82, 187, 0.4);
+    border-color: var(--red-accent);
+}
+
     </style>
 </head>
 	
 <body>
-    <div class="scroll-indicator">
-        <div class="scroll-progress" id="scrollProgress"></div>
-    </div>
-
     <header>
         <nav class="container">
             <a href="#" class="logo">豆麹のアトリエ</a>
@@ -869,7 +933,15 @@
             </div>
             <p>&copy; 2025 豆麹のアトリエ. All rights reserved.</p>
         </div>
-    </footer>
+		
+		<button id="scrollToTop" class="scroll-to-top" aria-label="ページトップに戻る">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</button>
+		
+</footer>
 
     <script>
         // スムーススクロール
@@ -998,6 +1070,25 @@
                 navLinks.classList.remove('active');
             }
         });
+		
+		// スクロールトップボタンの機能
+const scrollToTopBtn = document.getElementById('scrollToTop');
+
+window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 100) {
+        scrollToTopBtn.classList.add('show');
+    } else {
+        scrollToTopBtn.classList.remove('show');
+    }
+});
+
+scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+		
     </script>
 </body>
 </html>
