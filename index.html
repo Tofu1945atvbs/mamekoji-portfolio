@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="豆麹のアトリエ - クトゥルフ神話TRPG二次創作イラスト、一次創作イラスト、デザインを制作するイラストレーター">
-<meta property="og:title" content="豆麹のアトリエ">
-<meta property="og:description" content="一次・二次創作イラストレーション・デザイン">
+    <meta name="description" content="豆麹のアトリエ - クトゥルフ神話TRPG二次創作イラスト、一次創作イラスト、デザインを制作するイラストレーター">
+    <meta property="og:title" content="豆麹のアトリエ">
+    <meta property="og:description" content="一次・二次創作イラストレーション・デザイン">
     <title>豆麹のアトリエ - イラストレーター・デザイナー</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700;800&display=swap');
@@ -125,149 +125,7 @@
             width: 100%;
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
-            overflow: hidden;
-            padding: 2rem 0;
-        }
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 400%;
-    height: 100%;
-    /* ローカル画像を使用し、フォールバック付き */
-    background-image: 
-        url('baae977a407da547.png'),
-        linear-gradient(135deg, var(--accent) 0%, var(--red-accent) 100%);
-    background-size: 25% 100%, 100% 100%;
-    background-repeat: repeat-x, no-repeat;
-    background-position: 0% center, center center;
-    animation: backgroundScrollDual 40s linear infinite;
-    z-index: 1;
-    opacity: 0.4;
-}
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.5);
-            z-index: 2;
-        }
-		
-		        .hero h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            width: 80%;
-            height: 3px;
-            background: var(--red-accent);
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-		
-		
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            animation: fadeInUp 1.2s ease-out;
-            padding: 0 1rem;
-        }
-		
-		        /* 画像が読み込まれない場合のフォールバック */
-        .hero.no-image::before {
-            background: linear-gradient(90deg, 
-                var(--accent) 0%, 
-                var(--accent-hover) 25%, 
-                var(--red-accent) 50%, 
-                var(--accent-hover) 75%, 
-                var(--accent) 100%
-            );
-            background-size: 50% 100%;
-        }
-		
-        
-        .hero h1 {
-            font-family: 'Shippori Mincho', serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 0.1em;
-            text-shadow: 0 4px 8px rgba(184, 134, 11, 0.2);
-            position: relative;
-        }
-
-        .hero p {
-            font-family: 'Shippori Mincho', serif;
-            font-size: clamp(1rem, 3vw, 1.4rem);
-            margin-bottom: 3rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-            letter-spacing: 0.08em;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--gold-gradient);
-            color: var(--primary-bg);
-            padding: clamp(0.8rem, 2vw, 1.2rem) clamp(2rem, 5vw, 3rem);
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            font-family: 'Shippori Mincho', serif;
-            letter-spacing: 0.1em;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 25px rgba(184, 134, 11, 0.3);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(184, 134, 11, 0.4);
-            border-color: var(--accent);
-        }
-
-		.nav-links a:hover::before {
-            width: 100%;
-        }
-		
-		        /* Hamburger Menu */
+        /* Hamburger Menu */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -340,6 +198,134 @@
                 display: none;
             }
         }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 400%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                var(--accent) 0%, 
+                var(--accent-hover) 25%, 
+                var(--red-accent) 50%, 
+                var(--accent-hover) 75%, 
+                var(--accent) 100%
+            );
+            background-size: 25% 100%;
+            background-repeat: repeat-x;
+            background-position: 0% center;
+            animation: backgroundScrollDual 40s linear infinite;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.5);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            animation: fadeInUp 1.2s ease-out;
+            padding: 0 1rem;
+        }
+        
+        .hero h1 {
+            font-family: 'Shippori Mincho', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.1em;
+            text-shadow: 0 4px 8px rgba(184, 134, 11, 0.2);
+            position: relative;
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 80%;
+            height: 3px;
+            background: var(--red-accent);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .hero p {
+            font-family: 'Shippori Mincho', serif;
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 0.08em;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold-gradient);
+            color: var(--primary-bg);
+            padding: clamp(0.8rem, 2vw, 1.2rem) clamp(2rem, 5vw, 3rem);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-family: 'Shippori Mincho', serif;
+            letter-spacing: 0.1em;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(184, 134, 11, 0.3);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(184, 134, 11, 0.4);
+            border-color: var(--accent);
+        }
+
         /* Sections */
         .section {
             padding: clamp(4rem, 10vw, 8rem) 0;
@@ -425,6 +411,7 @@
         a.ccfolia:hover {
             color:red;
         }
+
         .content-image {
             text-align: center;
         }
@@ -501,7 +488,6 @@
         .portfolio-item:hover::before {
             opacity: 1;
         }
-
 
         .portfolio-item:hover {
             transform: translateY(-10px);
@@ -630,14 +616,48 @@
             border: 2px solid transparent;
             font-size: clamp(0.9rem, 2vw, 1rem);
             cursor: pointer;
-            background: var(--gold-gradient);
-            border: none;
         }
 
         .link-button:hover {
             transform: scale(1.05);
             border-color: var(--red-accent);
             box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--gold-gradient);
+            border: none;
+            border-radius: 50%;
+            color: var(--primary-bg);
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(76, 82, 187, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 35px rgba(76, 82, 187, 0.4);
+            border-color: var(--red-accent);
         }
 
         /* Footer */
@@ -677,6 +697,7 @@
 
         footer p {
             font-family: 'Shippori Mincho', serif;
+
             letter-spacing: 0.05em;
             opacity: 0.8;
             font-size: clamp(0.8rem, 2vw, 1rem);
@@ -711,49 +732,29 @@
                 transform: translateY(0);
             }
         }
-		
-		/* スクロールトップボタンのスタイル */
-.scroll-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background: var(--gold-gradient);
-    border: none;
-    border-radius: 50%;
-    color: var(--primary-bg);
-    cursor: pointer;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.4s ease;
-    box-shadow: 0 8px 25px rgba(76, 82, 187, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid transparent;
-}
 
-.scroll-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
+        @keyframes backgroundScrollDual {
+            0% {
+                background-position: 0% center;
+            }
+            100% {
+                background-position: 100% center;
+            }
+        }
 
-.scroll-to-top:hover {
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 15px 35px rgba(76, 82, 187, 0.4);
-    border-color: var(--red-accent);
-}
-
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
-	<div class="scroll-indicator">
-    <div class="scroll-progress" id="scrollProgress"></div>
-</div>
 <body>
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+    
     <header>
         <nav class="container">
             <a href="#" class="logo">豆麹のアトリエ</a>
@@ -765,7 +766,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">ホーム</a></li>
                 <li><a href="#about">プロフィール</a></li>
-				<li><a href="#vtuber">Vtuber</a></li>
+                <li><a href="#vtuber">Vtuber</a></li>
                 <li><a href="#portfolio">作品</a></li>
                 <li><a href="#links">リンク</a></li>
             </ul>
@@ -787,8 +788,8 @@
                 <div class="content-text">
                     <p>趣味でイラストやデザインをしている豆麹と申します。</p>
                     <p>アミューズメントメディア総合学院 ゲーム・アニメ・3DCG学科卒</p>
-<p>クトゥルフ神話TRPGが大好きで、一次創作や二次創作イラストの制作をしています。</p>
-			<p>男性キャラ中心に描いたりしてます。最近は戦闘立ち絵にチャレンジ中</p>
+                    <p>クトゥルフ神話TRPGが大好きで、一次創作や二次創作イラストの制作をしています。</p>
+                    <p>男性キャラ中心に描いたりしてます。最近は戦闘立ち絵にチャレンジ中</p>
                     <p>OCイラストや二次創作イラスト、<a href="https://ccfolia.com/" class="ccfolia">ccfolia</a>の卓デザイン等で活動しています。</p>
                 </div>
                 <div class="content-image">
@@ -824,7 +825,7 @@
         <div class="container">
             <h2 class="section-title">作品集</h2>
             <div class="portfolio-grid">
-                <div class="portfolio-item" onclick="window.open('https://ayukaooe2001job.wixsite.com/my-site/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E4%BD%9C%E5%93%81-%E4%BA%8C%E6%AC%A1%E5%89%B5%E4%BD%9C', '_blank', 'noopener,noreferrer')">
+	          <div class="portfolio-item" onclick="window.open('https://ayukaooe2001job.wixsite.com/my-site/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E4%BD%9C%E5%93%81-%E4%BA%8C%E6%AC%A1%E5%89%B5%E4%BD%9C', '_blank', 'noopener,noreferrer')">
                     <div class="portfolio-image">二次創作イラスト</div>
                     <div class="portfolio-content">
                         <h3>二次創作イラスト</h3>
@@ -835,7 +836,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="portfolio-item" onclick="window.open('https://ayukaooe2001job.wixsite.com/my-site/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E4%BD%9C%E5%93%81-%E4%B8%80%E6%AC%A1%E5%89%B5%E4%BD%9C', '_blank', 'noopener,noreferrer')">
                     <div class="portfolio-image">一次創作イラスト</div>
                     <div class="portfolio-content">
@@ -859,10 +859,11 @@
                             <span class="tag">立ち絵</span>
                         </div>
                     </div>
-                </div>
+				</div>
             </div>
         </div>
     </section>
+
     <section id="links" class="links">
         <div class="container">
             <h2 class="section-title">リンク</h2>
@@ -870,21 +871,12 @@
                 <div class="link-item">
                     <h3>Pixiv</h3>
                     <p>主に一枚絵の投稿をしています</p>
-					<button class="link-button" onclick="window.open('https://www.pixiv.net/users/24319989','_blank','noopener')">作品を見る</button>
-
+                    <button class="link-button" onclick="window.open('https://www.pixiv.net/users/24319989','_blank','noopener')">作品を見る</button>
                 </div>
                 <div class="link-item">
                     <h3>X(Twitter)</h3>
                     <p>卓報告やOCキャラの投稿をしています</p>
-                    <a
-  href="https://x.com/TofuATNR_TRPG"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="link-button"
->
-  サイトを開く
-</a>
-
+                    <a href="https://x.com/TofuATNR_TRPG" target="_blank" rel="noopener noreferrer" class="link-button">サイトを開く</a>
                 </div>
                 <div class="link-item">
                     <h3>Youtube</h3>
@@ -894,14 +886,7 @@
                 <div class="link-item">
                     <h3>Vtuber</h3>
                     <p>仁井冬悟の活動はこちらから</p>
-                                        <a
-  href="https://www.youtube.com/@%E4%BB%81%E4%BA%95%E5%86%AC%E6%82%9F"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="link-button"
->
-  配信を見る
-</a>
+                    <a href="https://www.youtube.com/@%E4%BB%81%E4%BA%95%E5%86%AC%E6%82%9F" target="_blank" rel="noopener noreferrer" class="link-button">配信を見る</a>
                 </div>
             </div>
         </div>
@@ -910,246 +895,206 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                   <a
-      href="https://www.pixiv.net/users/24319989"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Pixiv
-    </a>
-                <a
-      href="https://x.com/TofuATNR_TRPG"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      X(Twitter)
-    </a>
-                <a
-      href="https://www.youtube.com/@tofu_gnsn"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Youtube
-    </a>
-                <a
-      href="https://www.youtube.com/@%E4%BB%81%E4%BA%95%E5%86%AC%E6%82%9F"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Vtuber
-    </a>
+                <a href="https://www.pixiv.net/users/24319989" target="_blank" rel="noopener noreferrer">Pixiv</a>
+                <a href="https://x.com/TofuATNR_TRPG" target="_blank" rel="noopener noreferrer">X(Twitter)</a>
+                <a href="https://www.youtube.com/@tofu_gnsn" target="_blank" rel="noopener noreferrer">Youtube</a>
+                <a href="https://www.youtube.com/@%E4%BB%81%E4%BA%95%E5%86%AC%E6%82%9F" target="_blank" rel="noopener noreferrer">Vtuber</a>
             </div>
             <p>&copy; 2025 豆麹のアトリエ. All rights reserved.</p>
         </div>
-		
-		<button id="scrollToTop" class="scroll-to-top" aria-label="ページトップに戻る">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-</button>
-		
-</footer>
+    </footer>
+
+    <button id="scrollToTop" class="scroll-to-top" aria-label="ページトップに戻る">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
 
     <script>
-        // スムーススクロール
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+        // DOMContentLoadedを待ってからスクリプトを実行
+        document.addEventListener('DOMContentLoaded', function() {
+            // スムーススクロール
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // ハンバーガーメニューの動作
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+
+                // メニューリンクをクリックした時にメニューを閉じる
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
                     });
+                });
+
+                // メニューエリア外をクリックした時にメニューを閉じる
+                document.addEventListener('click', function(e) {
+                    if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            }
+
+            // スクロールトップボタンの機能
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            if (scrollToTopBtn) {
+                scrollToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // スクロール進捗バー & ヘッダー効果 & スクロールトップボタン表示
+            window.addEventListener('scroll', function() {
+                const scrollProgress = document.getElementById('scrollProgress');
+                const header = document.querySelector('header');
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.body.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                
+                // スクロール進捗バー
+                if (scrollProgress) {
+                    scrollProgress.style.width = scrollPercent + '%';
+                }
+                
+                // ヘッダー背景の変更
+                if (header) {
+                    if (scrollTop > 100) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                }
+
+                // スクロールトップボタンの表示/非表示
+                if (scrollToTopBtn) {
+                    if (scrollTop > 300) {
+                        scrollToTopBtn.classList.add('show');
+                    } else {
+                        scrollToTopBtn.classList.remove('show');
+                    }
                 }
             });
-        });
 
-        // スクロール進捗バー & ヘッダー効果
-        window.addEventListener('scroll', function() {
-            const scrollProgress = document.getElementById('scrollProgress');
-            const header = document.querySelector('header');
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            
-            // スクロール進捗バー
-            scrollProgress.style.width = scrollPercent + '%';
-            
-            // ヘッダー背景の変更
-            if (scrollTop > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+            // 作品項目のアニメーション
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
-        // 作品項目のアニメーション
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 1s ease-out';
+                    }
+                });
+            }, observerOptions);
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 1s ease-out';
+            document.querySelectorAll('.portfolio-item, .link-item').forEach(item => {
+                observer.observe(item);
+            });
+
+            // パララックス効果（軽減）
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                if (hero && scrolled < window.innerHeight) {
+                    hero.style.transform = `translateY(${scrolled * 0.2}px)`;
                 }
             });
-        }, observerOptions);
 
-        document.querySelectorAll('.portfolio-item, .link-item').forEach(item => {
-            observer.observe(item);
-        });
-
-        // パララックス効果（軽減）
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero && scrolled < window.innerHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.2}px)`;
+            // 和風パーティクル効果
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 8px;
+                    height: 8px;
+                    background: linear-gradient(45deg, #b8860b, #cd853f);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1000;
+                    opacity: 0.6;
+                    top: -10px;
+                    left: ${Math.random() * 100}vw;
+                    animation: fall ${3 + Math.random() * 4}s linear forwards;
+                `;
+                
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.remove();
+                    }
+                }, 7000);
             }
-        });
 
-        // 和風パーティクル効果（桜の花びらのような効果）
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.style.cssText = `
-                position: fixed;
-                width: 8px;
-                height: 8px;
-                background: linear-gradient(45deg, #b8860b, #cd853f);
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 1000;
-                opacity: 0.6;
-                top: -10px;
-                left: ${Math.random() * 100}vw;
-                animation: fall ${3 + Math.random() * 4}s linear forwards;
-            `;
-            
-            document.body.appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 7000);
-        }
+            // パーティクルを定期的に生成
+            setInterval(createParticle, 2000);
 
-        // パーティクル用のCSSアニメーションを動的に追加
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fall {
-                to {
-                    transform: translateY(100vh) rotate(720deg);
-                    opacity: 0;
-                }
+            // 画像読み込み確認とフォールバック処理
+            function checkBackgroundImage() {
+                const hero = document.querySelector('.hero');
+                const testImage = new Image();
+                
+                testImage.onload = function() {
+                    console.log('背景画像の読み込み成功');
+                };
+                
+                testImage.onerror = function() {
+                    console.log('背景画像の読み込み失敗 - フォールバックを使用');
+                    if (hero) {
+                        hero.classList.add('no-image');
+                    }
+                };
+                
+                testImage.src = 'baae977a407da547.png';
             }
-        `;
-        document.head.appendChild(style);
 
+            checkBackgroundImage();
 
-        // パーティクルを定期的に生成
-        setInterval(createParticle, 2000);
-
-        // ハンバーガーメニューの動作
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', function() {
-            // メニューボタンのアニメーション
-            this.classList.toggle('active');
-            // ナビゲーションメニューの表示/非表示
-            navLinks.classList.toggle('active');
-        });
-
-        // メニューリンクをクリックした時にメニューを閉じる
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function() {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // メニューエリア外をクリックした時にメニューを閉じる
-        document.addEventListener('click', function(e) {
-            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
+            // ローカル画像ファイルの確認
+            function checkLocalImages() {
+                const imagesToCheck = [
+                    '通常.png',
+                    '冬悟バストアップ.png',
+                    'baae977a407da547.png'
+                ];
+                
+                imagesToCheck.forEach(imagePath => {
+                    const img = new Image();
+                    img.onload = () => console.log(`${imagePath} 読み込み成功`);
+                    img.onerror = () => console.log(`${imagePath} 読み込み失敗`);
+                    img.src = imagePath;
+                });
             }
+
+            checkLocalImages();
         });
-		
-		// スクロールトップボタンの機能
-const scrollToTopBtn = document.getElementById('scrollToTop');
-
-window.addEventListener('scroll', function() {
-    if (window.pageYOffset > 100) {
-        scrollToTopBtn.classList.add('show');
-    } else {
-        scrollToTopBtn.classList.remove('show');
-    }
-});
-
-scrollToTopBtn.addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-		// 画像読み込み確認とフォールバック処理
-function checkBackgroundImage() {
-    const hero = document.querySelector('.hero');
-    const testImage = new Image();
-    
-    // 外部画像の読み込みテスト
-    testImage.onload = function() {
-        console.log('背景画像の読み込み成功');
-        // 画像が読み込まれた場合は何もしない
-    };
-    
-    testImage.onerror = function() {
-        console.log('背景画像の読み込み失敗 - フォールバックを使用');
-        // 画像が読み込まれなかった場合はクラスを追加
-        hero.classList.add('no-image');
-        
-        // より魅力的なグラデーション背景を設定
-        hero.style.setProperty('--fallback-bg', `
-            linear-gradient(135deg, 
-                var(--accent) 0%, 
-                var(--accent-hover) 20%, 
-                var(--red-accent) 40%, 
-                var(--accent-hover) 60%, 
-                var(--accent) 80%,
-                var(--red-accent) 100%
-            )
-        `);
-    };
-    
-    // 使用している画像のURLをテスト
-    testImage.src = 'https://i.imgur.com/IaE0HCy.png';
-}
-
-// ページ読み込み後に実行
-document.addEventListener('DOMContentLoaded', checkBackgroundImage);
-
-// ローカル画像ファイルの確認
-function checkLocalImages() {
-    const imagesToCheck = [
-        '通常.png',
-        '冬悟バストアップ.png'
-		'baae977a407da547.png'
-    ];
-    
-    imagesToCheck.forEach(imagePath => {
-        const img = new Image();
-        img.onload = () => console.log(`${imagePath} 読み込み成功`);
-        img.onerror = () => console.log(`${imagePath} 読み込み失敗`);
-        img.src = imagePath;
-    });
-}
-
-// 画像確認も実行
-document.addEventListener('DOMContentLoaded', checkLocalImages);
     </script>
 </body>
 </html>
