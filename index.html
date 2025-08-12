@@ -456,8 +456,8 @@
         /* Portfolio Grid */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr); /* 4つの等幅カラム */
+            gap: 1.5rem; /* ギャップを少し狭める */
         }
 
         .portfolio-item {
@@ -556,11 +556,11 @@
         /* Links Grid */
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 900px;
+            grid-template-columns: repeat(4, 1fr); /* 4つの等幅カラム */
+            gap: 1.5rem; /* ギャップを少し狭める */
+            max-width: 1200px; /* 最大幅を広げる */
             margin: 0 auto;
-        }
+}
 
         .link-item {
             background: var(--card-bg);
@@ -748,6 +748,27 @@
                 opacity: 0;
             }
         }
+		/* タブレット用のレスポンシブ対応 */
+@media (max-width: 1024px) {
+    .portfolio-grid,
+    .links-grid {
+        grid-template-columns: repeat(2, 1fr); /* タブレットでは2列 */
+        gap: 2rem;
+    }
+}
+	/* スマートフォン用のレスポンシブ対応 */
+@media (max-width: 768px) {
+    .portfolio-grid,
+    .links-grid {
+        grid-template-columns: 1fr; /* スマートフォンでは1列 */
+        gap: 2rem;
+    }
+    
+    .links-grid {
+        max-width: 100%; /* スマートフォンでは最大幅制限を解除 */
+    }
+}	
+		
     </style>
 </head>
 <body>
@@ -858,6 +879,17 @@
                         <div class="portfolio-tags">
                             <span class="tag">イラスト</span>
                             <span class="tag">立ち絵</span>
+                        </div>
+                    </div>
+				</div>
+	           <div class="portfolio-item" onclick="window.open('http://689aab1d0fffd.site123.me', '_blank', 'noopener,noreferrer')">
+                    <div class="portfolio-image">ccfolia部屋デザイン</div>
+                    <div class="portfolio-content">
+                        <h3>ccfolia部屋デザイン</h3>
+                        <p>クトゥルフ神話TRPGのセッションに使用するココフォリアの部屋デザインです</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">デザイン</span>
+                            <span class="tag">CoC</span>
                         </div>
                     </div>
 				</div>
